@@ -1,0 +1,18 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: pheer
+  description: Basic provisioning role for centos
+  company: "Hobsons, Inc"
+  license: "license (BSD, MIT)"
+  min_ansible_version: 2.0
+  platforms:
+  - name: EL
+    versions:
+    - all
+  galaxy_tags:
+    - provision
+    - docker
+    - ansible
+    - ansible-container
