@@ -1,0 +1,8 @@
+---
+
+- name: restart ntpd
+  service: name=ntpd state=restarted
+- name: enable docker
+  service: name=docker.service enabled=yes
+- name: start docker
+  service: name=docker state=started
