@@ -14,6 +14,9 @@
 - name: install wget
   yum: name=wget state=latest
 
+- name: upgrade setuptools
+  shell: pip install --upgrade setuptools
+  
 - name: add dockerrepo to yum
   copy: src=docker.repo dest=/etc/yum.repos.d/ owner=root group=root mode=0644
 
