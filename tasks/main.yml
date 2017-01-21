@@ -1,5 +1,8 @@
 ---
 
+- name: Install pip via easy install
+  easy_install: name=pip state=present
+
 - name: ensure ntpd is at the latest version
   yum: name=ntp state=latest
   notify:
