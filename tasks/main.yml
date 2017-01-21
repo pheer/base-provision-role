@@ -1,8 +1,5 @@
 ---
 
-- name: Install pip via easy install
-  easy_install: name=pip state=present
-
 - name: ensure ntpd is at the latest version
   yum: name=ntp state=latest
   notify:
@@ -13,18 +10,6 @@
 
 - name: install wget
   yum: name=wget state=latest
-
-- name: upgrade setuptools
-  shell: pip install --upgrade setuptools
-  
-- name: add dockerrepo to yum
-  copy: src=docker.repo dest=/etc/yum.repos.d/ owner=root group=root mode=0644
-
-- name: install docker
-  yum: name=docker-engine enablerepo=dockerrepo state=present
-  notify:
-    - enable docker
-    - start docker
 
 # Upgrade pip with pip to fix angstwad/docker.ubuntu/pull/35 and docker-py/issues/525
 # Install latest version when no specific release is set.
@@ -43,7 +28,3 @@
 # install ansible
 - name: install ansible
   yum: name=ansible state=latest
-
-#- name: install ansible container
-  #pip: name=ansible-container state=latest
-
