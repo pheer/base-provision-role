@@ -26,19 +26,6 @@
     - enable docker
     - start docker
 
-# Upgrade pip with pip to fix angstwad/docker.ubuntu/pull/35 and docker-py/issues/525
-# Install latest version when no specific release is set.
-- name: Upgrade latest pip, setuptools, docker-py and docker-compose with pip
-  pip:
-    name: "{{ item.name }}"
-    state: latest
-  with_items:
-    - { name: pip, version: "latest", install: true }
-    - { name: setuptools, version: "latest", install: true }
-    - { name: docker-compose, version: "1.9.0", install: true }
-    - { name: docker-py, version: "latest", install: true }
-  ignore_errors: yes
-
 # install ansible
 - name: install ansible
   yum: name=ansible state=latest
